@@ -1,53 +1,27 @@
 package org.lms.dto;
 
-import enums.RegistrationStatus;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Employee {
+    private final EmployeeDetails employeeDetails;
+    private final List<CourseDetails> registeredCourseDetails;
+    private final List<CourseDetails> allotedCourseDetails;
 
-
-    int registrationNumber;
-    String email;
-    String name;
-    RegistrationStatus registrationStatus;
-    String courseRegistered;
-
-    public int getRegistrationNumber() {
-        return registrationNumber;
+    public Employee(String emailId) {
+        this.employeeDetails = new EmployeeDetails(emailId);
+        this.registeredCourseDetails = new ArrayList<>();
+        this.allotedCourseDetails = new ArrayList<>();
     }
 
-    public void setRegistrationNumber(int registrationNumber) {
-        this.registrationNumber = registrationNumber;
+    public void addRegisteredCourseDetails(CourseDetails courseDetails){
+        registeredCourseDetails.add(courseDetails);
     }
 
-    public String getCourseRegistered() {
-        return courseRegistered;
+    public void removeRegisteredCourseDetails(CourseDetails courseDetails){
+        registeredCourseDetails.remove(courseDetails);
     }
-
-    public void setCourseRegistered(String courseRegistered) {
-        this.courseRegistered = courseRegistered;
+    public void addAllotedCourseDetails(CourseDetails courseDetails){
+        allotedCourseDetails.add(courseDetails);
     }
-    public RegistrationStatus getRegistrationStatus() {
-        return registrationStatus;
-    }
-
-    public void setRegistrationStatus(RegistrationStatus registrationStatus) {
-        this.registrationStatus = registrationStatus;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
 }

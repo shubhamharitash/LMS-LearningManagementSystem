@@ -1,70 +1,57 @@
 package org.lms.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Course {
-    String title;
-    String instructor;
-    long date;
+    CourseDetails courseDetails;
+    private List<Employee> registeredEmployees;
+    private List<Employee> allotedEmployees;
 
-    @Override
-    public String toString() {
-        return "Course{" +
-                "title='" + title + '\'' +
-                ", instructor='" + instructor + '\'' +
-                ", date=" + date +
-                ", min_limit=" + min_limit +
-                ", max_limit=" + max_limit +
-                '}';
+    public Course(String title, String instructor, String date, int min_limit, int max_limit) {
+        this.courseDetails = new CourseDetails(title, instructor, date, min_limit, max_limit);
+        this.registeredEmployees = new ArrayList<>();
+        this.allotedEmployees = new ArrayList<>();
     }
 
-    int min_limit;
-
-    public Course(String title, String instructor, long date, int min_limit, int max_limit) {
-        this.title = title;
-        this.instructor = instructor;
-        this.date = date;
-        this.min_limit = min_limit;
-        this.max_limit = max_limit;
+    public List<Employee> getRegisteredEmployees() {
+        return registeredEmployees;
     }
 
-    int max_limit;
-    public String getTitle() {
-        return title;
+    public List<Employee> getAllotedEmployees() {
+        return allotedEmployees;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public CourseDetails getCourseDetails() {
+        return courseDetails;
     }
 
-    public String getInstructor() {
-        return instructor;
+    public void registerEmployee(Employee employee){
+        registeredEmployees.add(employee);
+        employee.addRegisteredCourseDetails(courseDetails);
     }
 
-    public void setInstructor(String instructor) {
-        this.instructor = instructor;
+    public void removeFromCourse(Employee employee){
+        employee.removeRegisteredCourseDetails(courseDetails);
+        registeredEmployees.remove(employee);
+    }
+    public void notifySuccessfulAllotment(){
+        /*
+            if registeredEmployees.size() > max_limit
+                register till max_limit, for rest, give error
+            if registeredEmployees.size() < min_limit
+                removeCourse
+         */
+        registeredEmployees.subList(0, courseDetails.getMax_limit()-1).forEach(employee -> {
+            employee.removeRegisteredCourseDetails(courseDetails);
+            employee.addAllotedCourseDetails(courseDetails);
+        });
+        allotedEmployees.addAll(registeredEmployees.subList(0, courseDetails.getMax_limit()-1));
+        registeredEmployees = registeredEmployees.subList(courseDetails.getMax_limit(), registeredEmployees.size());
     }
 
-    public long getDate() {
-        return date;
+    public void notifyCourseRemoval(){
+        registeredEmployees.forEach(employee -> employee.removeRegisteredCourseDetails(courseDetails));
+        registeredEmployees = new ArrayList<>();
     }
-
-    public void setDate(long date) {
-        this.date = date;
-    }
-
-    public int getMin_limit() {
-        return min_limit;
-    }
-
-    public void setMin_limit(int min_limit) {
-        this.min_limit = min_limit;
-    }
-
-    public int getMax_limit() {
-        return max_limit;
-    }
-
-    public void setMax_limit(int max_limit) {
-        this.max_limit = max_limit;
-    }
-
 }
