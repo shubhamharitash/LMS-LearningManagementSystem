@@ -69,7 +69,7 @@ public class CourseRegistration {
             recentAllotments.forEach(employee -> {
                 String courseRegistrationId = CourseRegistrationUtility.getCourseRegistrationId(employee.getEmployeeDetails().getName(), CourseRegistrationUtility.getCourseName(courseOfferingId));
                 CourseRegistrationDetails courseRegistrationDetails = registrationDetailsMap.get(courseRegistrationId);
-                courseRegistrationDetails.setStatus(RegistrationStatus.COMPLETED);
+                courseRegistrationDetails.setStatus(RegistrationStatus.CONFIRMED);
                 result.add(courseRegistrationDetails);
             });
         }
@@ -80,7 +80,7 @@ public class CourseRegistration {
             throw new RuntimeException("INPUT_DATA_ERROR");
         }
         CourseRegistrationDetails courseRegistrationDetails = registrationDetailsMap.get(courseRegistrationId);
-        if(courseRegistrationDetails.getStatus().equals(RegistrationStatus.COMPLETED)){
+        if(courseRegistrationDetails.getStatus().equals(RegistrationStatus.CONFIRMED)){
             throw new RuntimeException("CANCEL_REJECTED");
         }
         courseRegistrationDetails.setStatus(RegistrationStatus.CANCELLED);

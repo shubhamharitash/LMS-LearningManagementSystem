@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b04bbf0b-ebfd-4b7c-815a-c7acbfd6ff4e" name="Changes" comment="Refactored">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/lms/dto/CourseRegistrationDetails.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/input.txt" afterDir="false" />
+    <list default="true" id="b04bbf0b-ebfd-4b7c-815a-c7acbfd6ff4e" name="Changes" comment="LMS basic completed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/lms/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lms/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lms/dto/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lms/dto/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lms/service/CourseRegistration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lms/service/CourseRegistration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lms/service/CourseRegistrationDetails.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lms/utilities/CourseRegistrationUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lms/utilities/CourseRegistrationUtility.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +62,10 @@
     <key name="CreateClassDialog.RecentsKey">
       <recent name="src" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\adity\Documents\Development\LMS\target" />
+      <recent name="D:\adity\Documents\Development\LMS\src\main\resources" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -120,7 +119,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694800086254</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="LMS basic completed">
+      <option name="closed" value="true" />
+      <created>1694859010907</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1694859010907</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,7 +146,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Refactored" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored" />
+    <MESSAGE value="LMS basic completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="LMS basic completed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
