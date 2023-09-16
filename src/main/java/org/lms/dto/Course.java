@@ -2,6 +2,7 @@ package org.lms.dto;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Course {
     CourseDetails courseDetails;
@@ -27,6 +28,8 @@ public class Course {
     }
 
     public void registerEmployee(Employee employee){
+        if(registeredEmployees.contains(employee))
+            throw new RuntimeException("INPUT_DATA_ERROR");
         registeredEmployees.add(employee);
         employee.addRegisteredCourseDetails(courseDetails);
     }
@@ -35,19 +38,15 @@ public class Course {
         employee.removeRegisteredCourseDetails(courseDetails);
         registeredEmployees.remove(employee);
     }
-    public void notifySuccessfulAllotment(){
-        /*
-            if registeredEmployees.size() > max_limit
-                register till max_limit, for rest, give error
-            if registeredEmployees.size() < min_limit
-                removeCourse
-         */
-        registeredEmployees.subList(0, courseDetails.getMax_limit()-1).forEach(employee -> {
+    public List<Employee> notifySuccessfulAllotment(){
+        registeredEmployees.forEach(employee -> {
             employee.removeRegisteredCourseDetails(courseDetails);
             employee.addAllotedCourseDetails(courseDetails);
         });
-        allotedEmployees.addAll(registeredEmployees.subList(0, courseDetails.getMax_limit()-1));
-        registeredEmployees = registeredEmployees.subList(courseDetails.getMax_limit(), registeredEmployees.size());
+        allotedEmployees.addAll(registeredEmployees);
+        List<Employee> successfulAllotments = new ArrayList<>(registeredEmployees);
+        registeredEmployees = new ArrayList<>();
+        return successfulAllotments;
     }
 
     public void notifyCourseRemoval(){
