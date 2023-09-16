@@ -38,11 +38,11 @@ public class CourseRegistration {
             throw new RuntimeException("COURSE_FULL_ERROR");
         }
         // Date Logic
-        if(!CourseRegistrationUtility.checkIfValidDate(course.getCourseDetails().getDate()) && course.getRegisteredEmployees().size() < course.getCourseDetails().getMin_limit()){
-            course.notifyCourseRemoval();
-            courseMap.remove(CourseRegistrationUtility.getCourseName(courseOfferingId));
-            throw new RuntimeException("COURSE_CANCELED");
-        }
+//        if(course.getRegisteredEmployees().size() < course.getCourseDetails().getMin_limit()){
+//            course.notifyCourseRemoval();
+//            courseMap.remove(CourseRegistrationUtility.getCourseName(courseOfferingId));
+//            throw new RuntimeException("COURSE_CANCELED");
+//        }
         // Register Logic
         course.registerEmployee(employee);
         employeeMap.put(emailId, employee);
@@ -83,8 +83,8 @@ public class CourseRegistration {
         if(courseRegistrationDetails.getStatus().equals(RegistrationStatus.CONFIRMED)){
             throw new RuntimeException("CANCEL_REJECTED");
         }
-        courseRegistrationDetails.setStatus(RegistrationStatus.CANCELLED);
+        courseRegistrationDetails.setStatus(RegistrationStatus.CANCEL_ACCEPTED);
         courseRegistrationDetails.getCourse().removeFromCourse(courseRegistrationDetails.getEmployee());
-        return String.format("%s %s", courseRegistrationId, RegistrationStatus.CANCELLED);
+        return String.format("%s %s", courseRegistrationId, RegistrationStatus.CANCEL_ACCEPTED);
     }
 }

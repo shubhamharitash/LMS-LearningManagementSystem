@@ -5,6 +5,8 @@ import org.lms.dto.CourseRegistrationDetails;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
@@ -43,6 +45,7 @@ public class CourseRegistrationUtility {
     // TODO The output should be sorted by course-registration-id in ascending order
     public static String allotmentOutput(List<CourseRegistrationDetails> courseRegistrationDetailsList) {
         StringBuilder result = new StringBuilder();
+        Collections.sort(courseRegistrationDetailsList, Comparator.comparing(CourseRegistrationDetails::getCourseRegistrationId));
         for (int i = 0; i < courseRegistrationDetailsList.size(); i++) {
             CourseRegistrationDetails courseRegistrationDetails = courseRegistrationDetailsList.get(i);
             if (i != (courseRegistrationDetailsList.size() - 1)) {
