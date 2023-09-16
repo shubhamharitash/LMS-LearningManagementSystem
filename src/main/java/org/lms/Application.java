@@ -2,6 +2,8 @@ package org.lms;
 
 import org.lms.service.CourseRegistration;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -49,9 +51,38 @@ public class Application {
         System.out.println(courseRegistration.cancelRegistration(inputArgs[1]));
     }
 
-    public static void main(String[] args) throws ParseException {
+    public static void runLocal(){
         Scanner sc = new Scanner(System.in);
         while (true) {
+            try {
+                String input = sc.nextLine();
+                System.out.println(input + "Hello");
+                String[] inputArgs = input.split(" ");
+                switch (inputArgs[0]) {
+                    case "ADD-COURSE-OFFERING":
+                        addCourseOfferings(inputArgs);
+                        break;
+                    case "REGISTER":
+                        register(inputArgs);
+                        break;
+                    case "ALLOT":
+                        allot(inputArgs);
+                        break;
+                    case "CANCEL":
+                        cancel(inputArgs);
+                        break;
+                    case "DEFAULT":
+                        throw new RuntimeException("INPUT_DATA_ERROR");
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    public static void main(String[] args) throws ParseException, FileNotFoundException {
+        Scanner sc = new Scanner(new File(args[0]));
+        while (sc.hasNextLine()) {
             try {
                 String input = sc.nextLine();
                 String[] inputArgs = input.split(" ");

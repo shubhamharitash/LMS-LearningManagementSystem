@@ -1,5 +1,5 @@
 package org.lms.enums;
 
 public enum RegistrationStatus {
-    ACCEPTED,COMPLETED,CANCELLED;
+    ACCEPTED, CONFIRMED, CANCEL_ACCEPTED;
 }

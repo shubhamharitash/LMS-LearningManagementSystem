@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b04bbf0b-ebfd-4b7c-815a-c7acbfd6ff4e" name="Changes" comment="Refactored">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/lms/dto/CourseRegistrationDetails.java" afterDir="false" />
+    <list default="true" id="b04bbf0b-ebfd-4b7c-815a-c7acbfd6ff4e" name="Changes" comment="LMS basic completed">
       <change afterPath="$PROJECT_DIR$/src/main/resources/input.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/lms/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lms/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lms/dto/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lms/dto/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/lms/enums/RegistrationStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lms/enums/RegistrationStatus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/lms/service/CourseRegistration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lms/service/CourseRegistration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lms/service/CourseRegistrationDetails.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/lms/utilities/CourseRegistrationUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lms/utilities/CourseRegistrationUtility.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,28 +42,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/refactoredCode&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "feature/refactoredCode",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/adity/Documents/Development/LMS/target",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\adity\Documents\Development\LMS\target" />
+      <recent name="D:\adity\Documents\Development\LMS\src\main\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\adity\Documents\Development\LMS\target" />
+      <recent name="D:\adity\Documents\Development\LMS\src\main\resources" />
     </key>
   </component>
   <component name="RunManager">
@@ -74,6 +81,7 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="org.lms.Application" />
       <module name="LMS" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;D:\adity\Documents\Development\LMS\src\main\resources\input.txt&quot;" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.lms.*" />
@@ -111,6 +119,7 @@
       <workItem from="1694800525820" duration="7609000" />
       <workItem from="1694808395177" duration="1048000" />
       <workItem from="1694838363995" duration="5840000" />
+      <workItem from="1694883499277" duration="889000" />
     </task>
     <task id="LOCAL-00001" summary="Refactored">
       <option name="closed" value="true" />
@@ -120,7 +129,23 @@
       <option name="project" value="LOCAL" />
       <updated>1694800086254</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="LMS basic completed">
+      <option name="closed" value="true" />
+      <created>1694859010907</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1694859010907</updated>
+    </task>
+    <task id="LOCAL-00003" summary="LMS basic completed">
+      <option name="closed" value="true" />
+      <created>1694863450832</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1694863450832</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,20 +164,16 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Refactored" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored" />
+    <MESSAGE value="LMS basic completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="LMS basic completed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/lms/service/CourseRegistration.java</url>
-          <line>19</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/lms/service/CourseRegistration.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="2" />
+          <line>40</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
