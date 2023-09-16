@@ -5,19 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b04bbf0b-ebfd-4b7c-815a-c7acbfd6ff4e" name="Changes" comment="Refactored">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/lms/dto/CourseDetails.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/lms/dto/EmployeeDetails.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/lms/dto/RegistrationDetails.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/lms/service/CourseRegistration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/lms/utilities/CourseRegistrationUtility.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/lms/service/CourseRegistrationDetails.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lms/Allot_Course.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lms/Cancel_Registration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lms/Offer_Course.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lms/Register_Course.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/lms/dto/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lms/dto/Course.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/lms/dto/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lms/dto/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lms/enums/RegistrationStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lms/enums/RegistrationStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/lms/dto/EmployeeDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lms/dto/EmployeeDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/lms/service/CourseRegistration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lms/service/CourseRegistration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/lms/utilities/CourseRegistrationUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lms/utilities/CourseRegistrationUtility.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

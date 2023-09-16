@@ -2,9 +2,11 @@ package org.lms.dto;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Course {
     CourseDetails courseDetails;
+    private Map<String, Employee> employeeMap;
     private List<Employee> registeredEmployees;
     private List<Employee> allotedEmployees;
 
@@ -27,6 +29,8 @@ public class Course {
     }
 
     public void registerEmployee(Employee employee){
+        if(registeredEmployees.contains(employee))
+            throw new RuntimeException("INPUT_DATA_ERROR");
         registeredEmployees.add(employee);
         employee.addRegisteredCourseDetails(courseDetails);
     }

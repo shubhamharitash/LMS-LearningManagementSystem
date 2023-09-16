@@ -12,6 +12,7 @@ import java.util.Map;
 public class CourseRegistration {
     Map<String, Course> courseMap;
     Map<String, Employee> employeeMap;
+    Map<String, CourseRegistrationDetails> registrationDetailsMap;
 
     public void addCourse(String courseName, String instructor, String date, int minEmployee, int maxEmployee){
         courseMap.put(courseName, new Course(courseName, instructor, date, minEmployee, maxEmployee));
@@ -21,11 +22,18 @@ public class CourseRegistration {
             throw new RuntimeException("INPUT_DATA_ERROR");
         }
         Course course = courseMap.get(CourseRegistrationUtility.getCourseName(courseOfferingId));
-        Employee employee = new Employee(emailId);
+        // Find if any employee with same email id exists;
+        Employee employee;
+        if(employeeMap.containsKey(emailId)){
+            employee = employeeMap.get(emailId);
+        } else {
+            employee = new Employee(emailId);
+        }
         if(course.getRegisteredEmployees().size() + course.getAllotedEmployees().size() == course.getCourseDetails().getMax_limit()){
             throw new RuntimeException("COURSE_FULL_ERROR");
         }
         course.registerEmployee(employee);
+        registrationDetailsMap.put(CourseRegistrationUtility.getCourseRegistrationId())
     }
     public void courseAllotment(String courseOfferingId){
 

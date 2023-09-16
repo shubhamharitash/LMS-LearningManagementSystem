@@ -5,6 +5,10 @@ public class CourseRegistrationUtility {
         return courseOfferingId.split("-")[1];
     }
 
+    public static String getEmployeeName(String emailId){
+        return emailId.split("@")[0];
+    }
+
     public static String getCourseRegistrationId(String employeeName, String courseName){
         return String.format("REG-COURSE-%s-%s", employeeName, courseName);
     }
