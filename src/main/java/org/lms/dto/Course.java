@@ -6,7 +6,6 @@ import java.util.Map;
 
 public class Course {
     CourseDetails courseDetails;
-    private Map<String, Employee> employeeMap;
     private List<Employee> registeredEmployees;
     private List<Employee> allotedEmployees;
 
@@ -39,19 +38,15 @@ public class Course {
         employee.removeRegisteredCourseDetails(courseDetails);
         registeredEmployees.remove(employee);
     }
-    public void notifySuccessfulAllotment(){
-        /*
-            if registeredEmployees.size() > max_limit
-                register till max_limit, for rest, give error
-            if registeredEmployees.size() < min_limit
-                removeCourse
-         */
-        registeredEmployees.subList(0, courseDetails.getMax_limit()-1).forEach(employee -> {
+    public List<Employee> notifySuccessfulAllotment(){
+        registeredEmployees.forEach(employee -> {
             employee.removeRegisteredCourseDetails(courseDetails);
             employee.addAllotedCourseDetails(courseDetails);
         });
-        allotedEmployees.addAll(registeredEmployees.subList(0, courseDetails.getMax_limit()-1));
-        registeredEmployees = registeredEmployees.subList(courseDetails.getMax_limit(), registeredEmployees.size());
+        allotedEmployees.addAll(registeredEmployees);
+        List<Employee> successfulAllotments = new ArrayList<>(registeredEmployees);
+        registeredEmployees = new ArrayList<>();
+        return successfulAllotments;
     }
 
     public void notifyCourseRemoval(){
