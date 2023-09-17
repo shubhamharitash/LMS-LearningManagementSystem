@@ -12,9 +12,21 @@ import java.util.List;
 import java.util.Map;
 
 public class CourseRegistration {
-    Map<String, Course> courseMap = new HashMap<>(); // key: courseName
-    Map<String, Employee> employeeMap = new HashMap<>(); // key: emailId
-    Map<String, CourseRegistrationDetails> registrationDetailsMap = new HashMap<>();
+    Map<String, Course> courseMap;
+    Map<String, Employee> employeeMap;
+    Map<String, CourseRegistrationDetails> registrationDetailsMap;
+
+    public CourseRegistration() {
+        this.courseMap = new HashMap<>();
+        this.employeeMap = new HashMap<>();
+        this.registrationDetailsMap = new HashMap<>();
+    }
+
+    public CourseRegistration(Map<String, Course> courseMap, Map<String, Employee> employeeMap, Map<String, CourseRegistrationDetails> registrationDetailsMap) {
+        this.courseMap = courseMap;
+        this.employeeMap = employeeMap;
+        this.registrationDetailsMap = registrationDetailsMap;
+    }
 
     public String addCourse(String courseName, String instructor, String date, int minEmployee, int maxEmployee){
         Course course = new Course(courseName, instructor, date, minEmployee, maxEmployee);

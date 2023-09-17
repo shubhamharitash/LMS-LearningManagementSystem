@@ -23,24 +23,20 @@ public class CourseRegistrationUtility {
         return String.format("REG-COURSE-%s-%s", employeeName, courseName);
     }
 
-    public static String[] getEmployeeNameAndCourseName(String courseRegistrationId) {
-        return (courseRegistrationId.replace("REG-COURSE-", "")).split("-");
-    }
-
     public static String getCourseOfferingId(CourseDetails courseDetails) {
         return String.format("OFFERING-%s-%s", courseDetails.getTitle(), courseDetails.getInstructor());
     }
 
-    public static boolean checkIfValidDate(String input) {
-        try {
-            SimpleDateFormat f = new SimpleDateFormat("ddMMyyyy");
-            Date inputDate = f.parse(input);
-            Date currentDate = new Date();
-            return inputDate.compareTo(currentDate) >= 0;
-        } catch (ParseException exception) {
-            throw new RuntimeException("INPUT_DATA_ERROR");
-        }
-    }
+//    public static boolean checkIfValidDate(String input) {
+//        try {
+//            SimpleDateFormat f = new SimpleDateFormat("ddMMyyyy");
+//            Date inputDate = f.parse(input);
+//            Date currentDate = new Date();
+//            return inputDate.compareTo(currentDate) >= 0;
+//        } catch (ParseException exception) {
+//            throw new RuntimeException("INPUT_DATA_ERROR");
+//        }
+//    }
 
     // TODO The output should be sorted by course-registration-id in ascending order
     public static String allotmentOutput(List<CourseRegistrationDetails> courseRegistrationDetailsList) {
