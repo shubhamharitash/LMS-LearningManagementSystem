@@ -49,12 +49,6 @@ public class CourseRegistration {
         if(course.getRegisteredEmployees().size() + course.getAllotedEmployees().size() == course.getCourseDetails().getMax_limit()){
             throw new RuntimeException("COURSE_FULL_ERROR");
         }
-        // Date Logic
-//        if(course.getRegisteredEmployees().size() < course.getCourseDetails().getMin_limit()){
-//            course.notifyCourseRemoval();
-//            courseMap.remove(CourseRegistrationUtility.getCourseName(courseOfferingId));
-//            throw new RuntimeException("COURSE_CANCELED");
-//        }
         // Register Logic
         course.registerEmployee(employee);
         employeeMap.put(emailId, employee);
