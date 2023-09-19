@@ -3,6 +3,7 @@ package org.lms.service;
 import org.lms.dto.Course;
 import org.lms.dto.CourseRegistrationDetails;
 import org.lms.dto.Employee;
+import org.lms.enums.CourseStatus;
 import org.lms.enums.RegistrationStatus;
 import org.lms.utilities.CourseRegistrationUtility;
 
@@ -38,7 +39,12 @@ public class CourseRegistration {
         if(!courseMap.containsKey(CourseRegistrationUtility.getCourseName(courseOfferingId))){
             throw new RuntimeException("INPUT_DATA_ERROR");
         }
+
         Course course = courseMap.get(CourseRegistrationUtility.getCourseName(courseOfferingId));
+        if(courseMap.containsKey(CourseRegistrationUtility.getCourseName(courseOfferingId))&& course.getCourseStatus().equals(CourseStatus.COURSE_CANCELED)){
+            throw new RuntimeException("COURSE_CANCELED");
+        }
+
         // Find if any employee with same email id exists;
         Employee employee;
         if(employeeMap.containsKey(emailId)){
@@ -66,10 +72,12 @@ public class CourseRegistration {
             course.getRegisteredEmployees().forEach(employee -> {
                 String courseRegistrationId = CourseRegistrationUtility.getCourseRegistrationId(employee.getEmployeeDetails().getName(), CourseRegistrationUtility.getCourseName(courseOfferingId));
                 CourseRegistrationDetails courseRegistrationDetails = registrationDetailsMap.get(courseRegistrationId);
+                courseRegistrationDetails.setStatus(RegistrationStatus.COURSE_CANCELED);
                 result.add(courseRegistrationDetails);
             });
-            course.notifyCourseRemoval();
-            courseMap.remove(CourseRegistrationUtility.getCourseName(courseOfferingId));
+            course.setCourseStatus(CourseStatus.COURSE_CANCELED);
+      //      course.notifyCourseRemoval();
+       //     courseMap.remove(CourseRegistrationUtility.getCourseName(courseOfferingId));
         } else {
             List<Employee> recentAllotments = course.notifySuccessfulAllotment();
             recentAllotments.forEach(employee -> {
@@ -78,6 +86,7 @@ public class CourseRegistration {
                 courseRegistrationDetails.setStatus(RegistrationStatus.CONFIRMED);
                 result.add(courseRegistrationDetails);
             });
+            course.setCourseStatus(CourseStatus.CONFIRMED);
         }
         return CourseRegistrationUtility.allotmentOutput(result);
     }
